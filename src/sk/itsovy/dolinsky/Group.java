@@ -44,6 +44,7 @@ public class Group {
 
 	public Student getStudent(String firstName, String lastName) {
 		//TODO getStudent
+
 		return null;
 	}
 
@@ -119,6 +120,7 @@ public class Group {
 
 	// mehtod have not got access to subjects array
 	public Student getStudentBySubject() {
+	    Student temp;
 
 		return null;
 	}
