@@ -15,9 +15,13 @@ public class Student {
 	private int dayOfBirth;
 	private int monthOfBirth;
 	private int yearOfBirth;
-	private String[] subjects;
+	private String[] subjectsArray;
 	private int size;
-	private int capacity = 10;
+	private int countOfSubjects;
+
+	private Color hairColor;
+	private Position position;
+	private ChineeseZodiacSign sign;
 
 	public Student(String name, String lastName, Date bDay) {
 		this.firstName = name;
@@ -32,8 +36,7 @@ public class Student {
 		this.monthOfBirth = monthOfBirth;
 		this.yearOfBirth = yearOfBirth;
 		this.size = 0;
-		this.subjects = new String[capacity];
-
+		this.subjectsArray = new String[countOfSubjects];
 	}
 
 	public String getFirstName() {
@@ -61,8 +64,32 @@ public class Student {
 		return yearOfBirth;
 	}
 
-	public String[] getSubjects() {
-		return subjects;
+	public String[] getSubjectsArray() {
+		return subjectsArray;
+	}
+
+	public Color getHairColor() {
+		return hairColor;
+	}
+
+	public void setHairColor(Color hairColor) {
+		this.hairColor = hairColor;
+	}
+
+	public Position getPosition() {
+		return position;
+	}
+
+	public void setPosition(Position position) {
+		this.position = position;
+	}
+
+	public ChineeseZodiacSign getSign() {
+		return sign;
+	}
+
+	public void setSign(ChineeseZodiacSign sign) {
+		this.sign = sign;
 	}
 
 	@Override
@@ -311,12 +338,33 @@ public class Student {
 		return text;
 	}
 
-	public boolean addSubject(String subject) {
-		if (subject == null || size == capacity)
+	public boolean addSubjectToArr(String subject) {
+		if (subject == null || subject == "") {
 			return false;
-		subjects[size] = subject;
-		size++;
-		return true;
+		}
+		boolean find = false;
+		for (int i = 0; i < countOfSubjects; i++) {
+			if (subjectsArray[i].compareToIgnoreCase(subject) == 0) {
+				find = true;
+				break;
+			}
+		}
+		if (find == false && countOfSubjects < 10) {
+			subjectsArray[countOfSubjects] = subject.toUpperCase();
+			countOfSubjects++;
+			return true;
+
+		} else {
+			return false;
+		}
 	}
+
+	public void printSubjects() {
+		System.out.println();
+		for (int i = 0; i < countOfSubjects; i++) {
+			System.out.println("  -" + subjectsArray[i]);
+		}
+	}
+
 
 }

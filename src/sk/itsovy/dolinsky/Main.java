@@ -1,7 +1,6 @@
 package sk.itsovy.dolinsky;
 
 import java.util.Arrays;
-import java.util.Date;
 
 /**
  * @author Martin Dolinsky
@@ -34,14 +33,13 @@ public class Main {
         System.out.println(zuzana.getZodiacSign());
         System.out.println(jozo.getZodiacSign());
         System.out.println(filip.getZodiacSign());
-        jozo.addSubject("ASF");
-        jozo.addSubject("PRO");
-        jozo.addSubject("EKO");
-        for (String s:jozo.getSubjects()) {
-            System.out.print(s + " ");
+        System.out.println("\n");
 
-        }
+        filip.setHairColor(Color.BLACK);
+        filip.setPosition(Position.DEVELOPER);
+        filip.setSign(ChineeseZodiacSign.RABBIT);
 
+        System.out.println(filip.getHairColor() + " " + filip.getPosition() + " " + filip.getSign());
 
 
     }
